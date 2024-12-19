@@ -11,7 +11,7 @@ local textSize = 12
 local showName = false
 local showDistance = false
 local showHealth = false
-local maxDisplayDistance
+local maxDisplayDistance = 1000
 local TextPosition = {
     Center = Vector3.new(0, 0, 0),
     Above = Vector3.new(0, 2, 0),
@@ -61,7 +61,7 @@ local function updateTexts()
             if head and humanoid then
                 local distance = (localPlayer.Character.HumanoidRootPart.Position - rootPart.Position).magnitude
                 
-                -- Проверка расстояния
+                -- Проверка расстояния с использованием maxDisplayDistance
                 if distance > maxDisplayDistance then
                     if playerText[player] then
                         playerText[player].Visible = false  -- Скрываем текст, если игрок слишком далеко
