@@ -40,8 +40,15 @@ local function rainbowColor(frequency)
 end
 
 -- Update the Drawing texts
+-- Update the Drawing texts
 local function updateTexts()
-    if not scriptEnabled then return end  -- Проверка, включен ли скрипт
+    -- Если скрипт выключен, скрываем все тексты и выходим
+    if not scriptEnabled then 
+        for _, text in pairs(playerText) do
+            text.Visible = false
+        end
+        return 
+    end
 
     local time = tick()
     for _, player in pairs(players:GetPlayers()) do
@@ -111,6 +118,7 @@ local function updateTexts()
         end
     end
 end
+
 
 -- Update the texts every frame
 runService.RenderStepped:Connect(updateTexts)
