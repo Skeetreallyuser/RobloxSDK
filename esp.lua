@@ -41,11 +41,12 @@ end
 
 -- Update the Drawing texts
 -- Update the Drawing texts
+-- Update the Drawing texts
 local function updateTexts()
     -- Если скрипт выключен, скрываем все тексты и выходим
     if not scriptEnabled then 
         for _, text in pairs(playerText) do
-            text.Visible = false
+            text.Visible = false  -- Скрываем текст
         end
         return 
     end
@@ -62,7 +63,7 @@ local function updateTexts()
                 -- Проверка расстояния
                 if distance > 1000 then
                     if playerText[player] then
-                        playerText[player].Visible = false
+                        playerText[player].Visible = false  -- Скрываем текст, если игрок слишком далеко
                     end
                     continue
                 end
@@ -108,17 +109,16 @@ local function updateTexts()
                     end
 
                     text.Size = textSize
-                    text.Visible = true
+                    text.Visible = true  -- Показываем текст, если он на экране
                 else
-                    text.Visible = false
+                    text.Visible = false  -- Скрываем текст, если игрок не на экране
                 end
             end
         elseif playerText[player] then
-            playerText[player].Visible = false
+            playerText[player].Visible = false  -- Скрываем текст, если игрок не активен
         end
     end
 end
-
 
 -- Update the texts every frame
 runService.RenderStepped:Connect(updateTexts)
