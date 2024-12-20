@@ -143,8 +143,8 @@ function toggleRainbowText()
 end
 
 -- Пример функции для установки пользовательского цвета текста
-function setCustomTextColor(r, g, b)
-    customTextColor = Color3.new(r, g, b)
+function setCustomTextColor(color)
+    customTextColor = color
 end
 
 -- Пример функции для установки размера текста
