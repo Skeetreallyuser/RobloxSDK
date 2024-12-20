@@ -13,7 +13,7 @@ local showDistance = false
 local showHealth = false
 local maxDisplayDistance = 1000
 local TextPosition = {
-    Center = Vector3.new(0, 1, 0),
+    Center = Vector3.new(0, 0, 0),
     Above = Vector3.new(0, 4, 0),
     Below = Vector3.new(0, -5, 0)
 }
