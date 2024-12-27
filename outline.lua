@@ -2,7 +2,7 @@ local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
 
 -- Настройки
-local highlightEnabled = true
+local highlightEnabled = false
 local fillTransparencyEnabled = false
 local outlineColor = Color3.fromRGB(255, 255, 255)
 
