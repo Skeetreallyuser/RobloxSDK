@@ -46,13 +46,17 @@ end
 Players.PlayerAdded:Connect(trackPlayer)
 
 local function toggleHighlight()
-    highlightEnabled = not highlightEnabled
+    highlightEnabled = not highlightEnabled -- Переключаем состояние обводки
     for _, player in ipairs(Players:GetPlayers()) do
         if player.Character then
-            if not highlightEnabled and player.Character:FindFirstChildOfClass("Highlight") then
-                player.Character:FindFirstChildOfClass("Highlight"):Destroy()
+            if highlightEnabled then
+                onCharacterAdded(player.Character) -- Применяем обводку, если она включена
             else
-                onCharacterAdded(player.Character)
+                -- Удаляем существующую обводку, если она отключена
+                local highlight = player.Character:FindFirstChildOfClass("Highlight")
+                if highlight then
+                    highlight:Destroy()
+                end
             end
         end
     end
